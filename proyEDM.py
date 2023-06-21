@@ -78,7 +78,7 @@ with col2:
     # Insertar un espacio en blanco para poner "elegir tema" abajo del todo
     df_puntos = {'lat':[], 'lon':[]}
     lista_bicis = pd.read_csv("bicis1.csv", header = 0, sep = ';', encoding='latin-1')
-    lista_bicis['Distrito_Bien'] = []
+    distrito = []
     for dis in lista_bicis['Distrito']:
         dis_final = dis[4:]
         if dis_final == 'CHAMBERê':
@@ -87,7 +87,7 @@ with col2:
             dis_final = 'TETUÁN'
         if dis_final == 'CHAMARTêN':
             dis_final = 'CHAMARTÍN'
-        lista_bicis['Distrito_Bien'].append(dis_final)
+        distrito.append(dis_final)
         st.write(dis_final)
         
     if destino != "Eje: Gran Vía":
