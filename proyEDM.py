@@ -20,7 +20,7 @@ data = {'lat': [], 'lon': []}
 
 
 coord_geo = {"Madrid" : {"lon": -3.7025600, "lat": 40.4165000}}
-col1, col2= st.columns(2, gap = "large")
+col1, col2, col3= st.columns(3)
 with col1:
     st.title("Nearest Bike Parking Finder")
     ciudad = "Madrid"
@@ -79,7 +79,7 @@ with col1:
     # Mostrar el mapa interactivo en Streamlit
     st.plotly_chart(fig)
 
-with col2:
+with col3:
     import requests
 
     def obtener_tiempo_madrid():
