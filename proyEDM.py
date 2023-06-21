@@ -100,7 +100,28 @@ with col3:
     st.metric(label="Temperature", value= "{}°C".format(tiempo_madrid['current']['temp_c']))
     st.write("Humidity: {}%".format(tiempo_madrid['current']['humidity']))
     st.write("Conditions: {}".format(tiempo_madrid['current']['condition']['text']))
-    st.image(tiempo_madrid['current']['condition']['icon'], caption=tiempo_madrid['current']['condition']['text'])
+
+    from datetime import datetime, timedelta
+
+    def obtener_tiempo_madrid_anterior(fecha):
+        url = "http://api.weatherapi.com/v1/history.json"
+        params = {
+            "key": "ebbc696950b4436a88a155849232106",
+            "q": "Madrid",
+            "dt": fecha.strftime("%Y-%m-%d"),
+        }
+        response = requests.get(url, params=params)
+        data = response.json()
+        return data
+    
+    # Calcular la fecha del día anterior
+    fecha_anterior = datetime.now() - timedelta(days=1)
+    
+    # Obtener los datos del tiempo del día anterior en Madrid
+    tiempo_anterior = obtener_tiempo_madrid_anterior(fecha_anterior)
+    
+    # Mostrar los datos en la página web
+    st.write(tiempo_anterior)
 
     
     
