@@ -29,7 +29,8 @@ def get_time_of_day():
         return "carto-darkmatter"
         
 if get_time_of_day() == "carto-positron": ind = 0
-    else: ind = 1
+else: 
+    ind = 1
     theme2 = st.selectbox("Elige el tema", ("Light", "Dark"), index = ind)
     if theme2 == "Light":
         theme = "carto-positron"
