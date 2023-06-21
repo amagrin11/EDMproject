@@ -62,7 +62,7 @@ with col1:
                 marker = {'size': 9, 'color':'red'},
                     ))
             centered = {'lon' : df_puntos['lon'][0],'lat' : df_puntos['lat'][0]}
-            fig.update_layout(mapbox_style='Light', mapbox=dict(center = centered, zoom = 15))
+            fig.update_layout(mapbox_style="carto-positron", mapbox=dict(center = centered, zoom = 15))
             fig.update_layout(height=900,width=1000) 
             u = lista_bicis.loc[row, 'Calle'] +", Madrid, España"
             st.write(loc.geocode(u))
@@ -71,7 +71,7 @@ with col1:
             
         else: 
             fig = px.scatter_mapbox(df_puntos, lat='lat', lon='lon', center = coord_geo['Madrid'], zoom = 11)
-            fig.update_layout(mapbox_style='Light')
+            fig.update_layout(mapbox_style="carto-positron")
             fig.update_layout(height=900,width=1000)
     
     
