@@ -66,7 +66,7 @@ with placeholder.container():
     
     m3.metric(label= "Conditions", value="{}".format(tiempo_madrid['current']['condition']['text']), delta = "{}".format(tiempo_anterior['forecast']['forecastday'][0]['day']['condition']['text']), delta_color= 'off')
 
-time.sleep(1)
+    time.sleep(1)
 
 
 coord_geo = {"Madrid" : {"lon": -3.7025600, "lat": 40.4165000}}
@@ -115,9 +115,6 @@ with col2:
             fig.update_layout(mapbox_style="carto-positron", mapbox=dict(center = centered, zoom = 15))
             fig.update_layout(height=900,width=1000) 
             u = lista_bicis.loc[row, 'Calle'] +", Madrid, España"
-            st.write(loc.geocode(u))
-            st.write(lista_bicis.loc[row][9])
-            st.write(lista_bicis.loc[row, 'Distrito'])
             
         else: 
             fig = px.scatter_mapbox(df_puntos, lat='lat', lon='lon', center = coord_geo['Madrid'], zoom = 11)
@@ -125,9 +122,11 @@ with col2:
             fig.update_layout(height=900,width=1000)
     
     
-    
     # Mostrar el mapa interactivo en Streamlit
     st.plotly_chart(fig)
+st.write(loc.geocode(u))
+st.write(lista_bicis.loc[row][9])
+st.write(lista_bicis.loc[row, 'Distrito'])
 
     
 
