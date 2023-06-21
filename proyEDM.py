@@ -97,7 +97,7 @@ with col2:
     
     # Mostrar los datos en la página web
     st.title("Weather")
-    st.metric(label="Temperature", value="tiempo_madrid['current']['temp_c']")
+    st.metric(label="Temperature", value= tiempo_madrid['current']['temp_c'])
     st.write("Temperature: {}°C".format(tiempo_madrid['current']['temp_c']))
     st.write("Humidity: {}%".format(tiempo_madrid['current']['humidity']))
     st.write("Conditions: {}".format(tiempo_madrid['current']['condition']['text']))
