@@ -52,15 +52,14 @@ with col1:
     st.markdown("\n")
   
 
-    col3, col4= st.columns(2)
-    with col3:
-        if get_time_of_day() == "carto-positron": ind = 0
-        else: ind = 1
-        theme2 = st.selectbox("Elige el tema", ("Light", "Dark"), index = ind)
-        if theme2 == "Light":
-            theme = "carto-positron"
-        else:
-            theme = "carto-darkmatter"
+    
+    if get_time_of_day() == "carto-positron": ind = 0
+    else: ind = 1
+    theme2 = st.selectbox("Elige el tema", ("Light", "Dark"), index = ind)
+    if theme2 == "Light":
+        theme = "carto-positron"
+    else:
+        theme = "carto-darkmatter"
     
     
     ################################################################
