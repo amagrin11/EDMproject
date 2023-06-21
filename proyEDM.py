@@ -78,7 +78,9 @@ with col2:
     # Insertar un espacio en blanco para poner "elegir tema" abajo del todo
     df_puntos = {'lat':[], 'lon':[]}
     lista_bicis = pd.read_csv("bicis1.csv", header = 0, sep = ';', encoding='latin-1')
-    st.write(lista_bicis)
+    for dis in lista_bicis['Dsitrito']:
+        dis_final = dis[3:]
+        st.write(dis_final)
     if destino != "Eje: Gran Vía":
         def dirToCoord(df, calle):
             minimo = 10000000
@@ -118,7 +120,7 @@ with col2:
         else: 
             fig = px.scatter_mapbox(df_puntos, lat='lat', lon='lon', center = coord_geo['Madrid'], zoom = 11)
             fig.update_layout(mapbox_style="carto-positron")
-            fig.update_layout(height=900,width=1000)
+            fig.update_layout(height=800,width=1000)
     
     
     # Mostrar el mapa interactivo en Streamlit
