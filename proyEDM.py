@@ -79,6 +79,29 @@ with col1:
     # Mostrar el mapa interactivo en Streamlit
     st.plotly_chart(fig)
 
+with col2:
+    import requests
+
+    def obtener_tiempo_madrid():
+        url = "http://api.weatherapi.com/v1/current.json"
+        params = {
+            "key": "ebbc696950b4436a88a155849232106",
+            "q": "Madrid"
+        }
+        response = requests.get(url, params=params)
+        data = response.json()
+        return data
+    
+    # Obtener los datos del tiempo actual de Madrid
+    tiempo_madrid = obtener_tiempo_madrid()
+    
+    # Mostrar los datos en la página web
+    st.title("Tiempo actual en Madrid")
+    st.write("Temperatura: {}°C".format(tiempo_madrid['current']['temp_c']))
+    st.write("Humedad: {}%".format(tiempo_madrid['current']['humidity']))
+    st.write("Condición: {}".format(tiempo_madrid['current']['condition']['text']))
+    st.image(tiempo_madrid['current']['condition']['icon'], caption=tiempo_madrid['current']['condition']['text'])
+
     
     
     ################################################################
