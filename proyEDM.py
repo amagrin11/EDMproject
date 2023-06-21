@@ -27,7 +27,14 @@ def get_time_of_day():
         return "carto-positron"
     else:
         return "carto-darkmatter"
-
+        
+if get_time_of_day() == "carto-positron": ind = 0
+    else: ind = 1
+    theme2 = st.selectbox("Elige el tema", ("Light", "Dark"), index = ind)
+    if theme2 == "Light":
+        theme = "carto-positron"
+    else:
+        theme = "carto-darkmatter"
 
 coord_geo = {"Madrid" : {"lon": -3.7025600, "lat": 40.4165000}}
 col1, col2= st.columns(2)
@@ -88,16 +95,7 @@ with col1:
     
     # Mostrar el mapa interactivo en Streamlit
     st.plotly_chart(fig)
-  
 
-    
-    if get_time_of_day() == "carto-positron": ind = 0
-    else: ind = 1
-    theme2 = st.selectbox("Elige el tema", ("Light", "Dark"), index = ind)
-    if theme2 == "Light":
-        theme = "carto-positron"
-    else:
-        theme = "carto-darkmatter"
     
     
     ################################################################
