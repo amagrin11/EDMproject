@@ -25,9 +25,6 @@ data = {'lat': [], 'lon': []}
 
 st.title("Nearest Bike Parking Finder")
 
-st.metric(label = "Date", value = date.today())
-st.time_input('Time entry')
-
 #to auto-update components
 placeholder = st.empty()
 
