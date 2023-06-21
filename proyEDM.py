@@ -25,7 +25,7 @@ data = {'lat': [], 'lon': []}
 
 st.title("Nearest Bike Parking Finder")
 
-st.date_input(date.now())
+st.date_input(date.today())
 st.time_input('Time entry')
 
 #to auto-update components
