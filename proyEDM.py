@@ -129,7 +129,7 @@ with col1:
     else: pass
     st.write(lista_bicis.loc[row][9])
     st.write(lista_bicis.loc[row, 'Distrito'])
-
+    st.bar_chart(lista_bicis['Distrito'])
     # Mostrar los datos en la página web
 
     
