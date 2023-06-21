@@ -81,6 +81,8 @@ with col2:
     
     for dis in lista_bicis['Distrito']:
         dis_final = dis[4:]
+        if dis_final == 'CHAMBERê':
+            dis_final = 'CHAMBERÍ'
         st.write(dis_final)
         
     if destino != "Eje: Gran Vía":
