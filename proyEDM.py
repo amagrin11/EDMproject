@@ -20,7 +20,7 @@ data = {'lat': [], 'lon': []}
 
 
 coord_geo = {"Madrid" : {"lon": -3.7025600, "lat": 40.4165000}}
-col1, col2= st.columns(2, gap = "medium")
+col1, col2= st.columns(2, gap = "large")
 with col1:
     st.title("Nearest Bike Parking Finder")
     ciudad = "Madrid"
