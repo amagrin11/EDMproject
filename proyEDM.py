@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+ric#!/usr/bin/env python
 # coding: utf-8
 
 # In[1]:
@@ -25,7 +25,7 @@ data = {'lat': [], 'lon': []}
 
 st.title("Nearest Bike Parking Finder")
 
-st.write(date.today())
+st.metric(label = "Date", value = date.today())
 st.time_input('Time entry')
 
 #to auto-update components
