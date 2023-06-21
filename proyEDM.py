@@ -78,6 +78,7 @@ with col2:
     # Insertar un espacio en blanco para poner "elegir tema" abajo del todo
     df_puntos = {'lat':[], 'lon':[]}
     lista_bicis = pd.read_csv("bicis1.csv", header = 0, sep = ';', encoding='latin-1')
+    st.write(lista_bicis)
     if destino != "Eje: Gran Vía":
         def dirToCoord(df, calle):
             minimo = 10000000
@@ -111,7 +112,7 @@ with col2:
                     ))
             centered = {'lon' : df_puntos['lon'][0],'lat' : df_puntos['lat'][0]}
             fig.update_layout(mapbox_style="carto-positron", mapbox=dict(center = centered, zoom = 15))
-            fig.update_layout(height=900,width=1000) 
+            fig.update_layout(height=800,width=1000) 
             u = lista_bicis.loc[row, 'Calle'] +", Madrid, España"
             
         else: 
