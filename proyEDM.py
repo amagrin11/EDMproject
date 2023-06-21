@@ -53,7 +53,7 @@ fecha_anterior = datetime.now() - timedelta(days=1)
 # Obtener los datos del tiempo del día anterior en Madrid
 tiempo_anterior = obtener_tiempo_madrid_anterior(fecha_anterior)
 
-m1,m2,m3 = st.columns(3)
+m1,m2,m3 = st.columns(3, gap = "small")
 m1.metric(label="Temperature", value= "{}°C".format(tiempo_madrid['current']['temp_c']), delta = "{}°C".format(round(tiempo_madrid['current']['temp_c'] - tiempo_anterior['forecast']['forecastday'][0]['day']['avgtemp_c'],1)))
 
 m2.metric(label="Humidity", value= "{}%".format(tiempo_madrid['current']['humidity']), delta = "{}%".format(round(tiempo_madrid['current']['humidity'] - tiempo_anterior['forecast']['forecastday'][0]['day']['avghumidity'],1)))
