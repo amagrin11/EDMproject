@@ -14,12 +14,12 @@ import time
 from geopy.geocoders import Nominatim
 from time import sleep
 loc = Nominatim(user_agent="GetLoc")
-st.title("Nearest Bike Parking Finder")
+
 st.set_page_config(page_title="ParkingFinder", layout='wide', initial_sidebar_state = "auto")
 data = {'lat': [], 'lon': []}
 
 import requests
-
+st.title("Nearest Bike Parking Finder")
 def obtener_tiempo_madrid():
     url = "http://api.weatherapi.com/v1/current.json"
     params = {
