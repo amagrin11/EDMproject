@@ -14,7 +14,7 @@ import time
 from geopy.geocoders import Nominatim
 from time import sleep
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 
 loc = Nominatim(user_agent="GetLoc")
 
@@ -25,7 +25,8 @@ data = {'lat': [], 'lon': []}
 
 st.title("Nearest Bike Parking Finder")
 
-st.write(datetime.now()[0])
+st.date_input(date.now())
+st.time_input('Time entry')
 
 #to auto-update components
 placeholder = st.empty()
