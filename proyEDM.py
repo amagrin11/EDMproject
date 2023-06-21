@@ -19,24 +19,6 @@ st.set_page_config(page_title="ParkingFinder", layout='wide', initial_sidebar_st
 data = {'lat': [], 'lon': []}
 
 
-def get_time_of_day():
-    now = datetime.datetime.now()
-    hour = now.hour
-
-    if hour >= 6 and hour < 19:
-        return "carto-positron"
-    else:
-        return "carto-darkmatter"
-        
-if get_time_of_day() == "carto-positron": ind = 0
-else: 
-    ind = 1
-    theme2 = st.selectbox("Elige el tema", ("Light", "Dark"), index = ind)
-    if theme2 == "Light":
-        theme = "carto-positron"
-    else:
-        theme = "carto-darkmatter"
-
 coord_geo = {"Madrid" : {"lon": -3.7025600, "lat": 40.4165000}}
 col1, col2= st.columns(2)
 with col1:
@@ -80,7 +62,7 @@ with col1:
                 marker = {'size': 9, 'color':'red'},
                     ))
             centered = {'lon' : df_puntos['lon'][0],'lat' : df_puntos['lat'][0]}
-            fig.update_layout(mapbox_style=theme, mapbox=dict(center = centered, zoom = 15))
+            fig.update_layout(mapbox_style='Light', mapbox=dict(center = centered, zoom = 15))
             fig.update_layout(height=900,width=1000) 
             u = lista_bicis.loc[row, 'Calle'] +", Madrid, España"
             st.write(loc.geocode(u))
@@ -89,7 +71,7 @@ with col1:
             
         else: 
             fig = px.scatter_mapbox(df_puntos, lat='lat', lon='lon', center = coord_geo['Madrid'], zoom = 11)
-            fig.update_layout(mapbox_style=theme)
+            fig.update_layout(mapbox_style='Light')
             fig.update_layout(height=900,width=1000)
     
     
