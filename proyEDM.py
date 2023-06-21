@@ -17,7 +17,7 @@ loc = Nominatim(user_agent="GetLoc")
 
 st.set_page_config(page_title="ParkingFinder", layout='wide', initial_sidebar_state = "auto")
 data = {'lat': [], 'lon': []}
-fig1, fig2 = st.columns(2)
+
 import requests
 st.title("Nearest Bike Parking Finder")
 def obtener_tiempo_madrid():
@@ -49,18 +49,18 @@ def obtener_tiempo_madrid_anterior(fecha):
 
 # Calcular la fecha del día anterior
 fecha_anterior = datetime.now() - timedelta(days=1)
-with fig1:
-    # Obtener los datos del tiempo del día anterior en Madrid
-    tiempo_anterior = obtener_tiempo_madrid_anterior(fecha_anterior)
-    
-    m1,m2,m3 = st.columns(3, gap = "small")
-    m1.metric(label="Temperature", value= "{}°C".format(tiempo_madrid['current']['temp_c']), delta = "{}°C".format(round(tiempo_madrid['current']['temp_c'] - tiempo_anterior['forecast']['forecastday'][0]['day']['avgtemp_c'],1)))
-    
-    m2.metric(label="Humidity", value= "{}%".format(tiempo_madrid['current']['humidity']), delta = "{}%".format(round(tiempo_madrid['current']['humidity'] - tiempo_anterior['forecast']['forecastday'][0]['day']['avghumidity'],1)))
-    
-    m3.metric(label= "Conditions", value="{}".format(tiempo_madrid['current']['condition']['text']), delta = "{}".format(tiempo_anterior['forecast']['forecastday'][0]['day']['condition']['text']), delta_color= 'off')
-    
-    coord_geo = {"Madrid" : {"lon": -3.7025600, "lat": 40.4165000}}
+
+# Obtener los datos del tiempo del día anterior en Madrid
+tiempo_anterior = obtener_tiempo_madrid_anterior(fecha_anterior)
+
+m1,m2,m3 = st.columns(3, gap = "small")
+m1.metric(label="Temperature", value= "{}°C".format(tiempo_madrid['current']['temp_c']), delta = "{}°C".format(round(tiempo_madrid['current']['temp_c'] - tiempo_anterior['forecast']['forecastday'][0]['day']['avgtemp_c'],1)))
+
+m2.metric(label="Humidity", value= "{}%".format(tiempo_madrid['current']['humidity']), delta = "{}%".format(round(tiempo_madrid['current']['humidity'] - tiempo_anterior['forecast']['forecastday'][0]['day']['avghumidity'],1)))
+
+m3.metric(label= "Conditions", value="{}".format(tiempo_madrid['current']['condition']['text']), delta = "{}".format(tiempo_anterior['forecast']['forecastday'][0]['day']['condition']['text']), delta_color= 'off')
+
+coord_geo = {"Madrid" : {"lon": -3.7025600, "lat": 40.4165000}}
 
 col1,col2 = st.columns(2)
 with col1:
