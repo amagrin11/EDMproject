@@ -83,6 +83,11 @@ with col2:
         dis_final = dis[4:]
         if dis_final == 'CHAMBERê':
             dis_final = 'CHAMBERÍ'
+        if dis_final == 'TETUçN':
+            dis_final = 'TETUÁN'
+        if dis_final == 'CHAMARTêN':
+            dis_final = 'CHAMARTÍN'
+        lista_bicis['Distrito_Bien'].append(dis_final)
         st.write(dis_final)
         
     if destino != "Eje: Gran Vía":
