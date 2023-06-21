@@ -21,11 +21,12 @@ loc = Nominatim(user_agent="GetLoc")
 st.set_page_config(page_title="ParkingFinder", layout='wide', initial_sidebar_state = "auto")
 data = {'lat': [], 'lon': []}
 
-#to auto-update components
-placeholder = st.empty()
+
 
 st.title("Nearest Bike Parking Finder")
 
+#to auto-update components
+placeholder = st.empty()
 
 def obtener_tiempo_madrid():
     url = "http://api.weatherapi.com/v1/current.json"
