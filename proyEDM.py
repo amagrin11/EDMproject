@@ -121,7 +121,7 @@ with col3:
     
     st.metric(label="Temperature", value= "{}°C".format(tiempo_madrid['current']['temp_c']), delta = "{}°C".format(round(tiempo_madrid['current']['temp_c'] - tiempo_anterior['forecast']['forecastday'][0]['day']['avgtemp_c'],1)))
     
-    st.metric(label="Humidity", value= "{}°C".format(tiempo_madrid['current']['humidity']), , delta = "{}°C".format(round(tiempo_madrid['current']['humidity'] - tiempo_anterior['forecast']['forecastday'][0]['day']['humidity'],1)))
+    st.metric(label="Humidity", value= "{}°C".format(tiempo_madrid['current']['humidity']), delta = "{}°C".format(round(tiempo_madrid['current']['humidity'] - tiempo_anterior['forecast']['forecastday'][0]['day']['humidity'],1)))
 
     st.write("Conditions: {}".format(tiempo_madrid['current']['condition']['text']))
 
