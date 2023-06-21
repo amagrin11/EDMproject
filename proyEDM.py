@@ -78,9 +78,11 @@ with col2:
     # Insertar un espacio en blanco para poner "elegir tema" abajo del todo
     df_puntos = {'lat':[], 'lon':[]}
     lista_bicis = pd.read_csv("bicis1.csv", header = 0, sep = ';', encoding='latin-1')
-    for dis in lista_bicis['Dsitrito']:
+    
+    for dis in lista_bicis['Distrito']:
         dis_final = dis[3:]
         st.write(dis_final)
+        
     if destino != "Eje: Gran Vía":
         def dirToCoord(df, calle):
             minimo = 10000000
