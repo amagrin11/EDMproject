@@ -124,9 +124,11 @@ with col2:
     
     # Mostrar el mapa interactivo en Streamlit
     st.plotly_chart(fig)
-st.write(loc.geocode(u))
-st.write(lista_bicis.loc[row][9])
-st.write(lista_bicis.loc[row, 'Distrito'])
+
+with col1:
+    st.write(loc.geocode(u))
+    st.write(lista_bicis.loc[row][9])
+    st.write(lista_bicis.loc[row, 'Distrito'])
 
     
 
