@@ -94,12 +94,7 @@ with col3:
     
     # Obtener los datos del tiempo actual de Madrid
     tiempo_madrid = obtener_tiempo_madrid()
-    
-    # Mostrar los datos en la página web
-    st.title("Weather")
-    st.metric(label="Temperature", value= "{}°C".format(tiempo_madrid['current']['temp_c']))
-    st.write("Humidity: {}%".format(tiempo_madrid['current']['humidity']))
-    st.write("Conditions: {}".format(tiempo_madrid['current']['condition']['text']))
+
 
     from datetime import datetime, timedelta
 
@@ -121,7 +116,10 @@ with col3:
     tiempo_anterior = obtener_tiempo_madrid_anterior(fecha_anterior)
     
     # Mostrar los datos en la página web
-    st.write(tiempo_anterior)
+    st.title("Weather")
+    st.metric(label="Temperature", value= "{}°C".format(tiempo_madrid['current']['temp_c']), delta = "{}°C".format(tiempo_madrid['current']['temp_c'] - tiempo_anterior['forecast']['forecastday'][0]['day']['avgtemp_c']))
+    st.write("Humidity: {}%".format(tiempo_madrid['current']['humidity']))
+    st.write("Conditions: {}".format(tiempo_madrid['current']['condition']['text']))
 
     
     
