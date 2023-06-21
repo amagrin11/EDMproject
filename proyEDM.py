@@ -141,7 +141,7 @@ with col1:
     else: pass
     st.write(lista_bicis.loc[row][9])
     st.write(lista_bicis.loc[row, 'Distrito'])
-    st.line_chart(distrito)
+    st.plotly_chart(distrito)
     # Mostrar los datos en la página web
 
     
