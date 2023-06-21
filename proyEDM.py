@@ -114,7 +114,7 @@ with col3:
     
     # Obtener los datos del tiempo del día anterior en Madrid
     tiempo_anterior = obtener_tiempo_madrid_anterior(fecha_anterior)
-    
+    st.write(iempo_anterior)
     # Mostrar los datos en la página web
     st.title("Weather")
    
