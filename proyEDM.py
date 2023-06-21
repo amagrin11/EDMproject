@@ -78,7 +78,7 @@ with col2:
     # Insertar un espacio en blanco para poner "elegir tema" abajo del todo
     df_puntos = {'lat':[], 'lon':[]}
     lista_bicis = pd.read_csv("bicis1.csv", header = 0, sep = ';', encoding='latin-1')
-    
+    lista_bicis['Distrito_Bien'] = []
     for dis in lista_bicis['Distrito']:
         dis_final = dis[4:]
         if dis_final == 'CHAMBERê':
