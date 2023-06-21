@@ -126,7 +126,9 @@ with col2:
     st.plotly_chart(fig)
 
 with col1:
-    st.write(loc.geocode(u))
+    if loc.geocode(u):
+        st.write(loc.geocode(u))
+    else: pass
     st.write(lista_bicis.loc[row][9])
     st.write(lista_bicis.loc[row, 'Distrito'])
 
