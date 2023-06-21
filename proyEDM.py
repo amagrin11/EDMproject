@@ -80,7 +80,7 @@ with col2:
     lista_bicis = pd.read_csv("bicis1.csv", header = 0, sep = ';', encoding='latin-1')
     
     for dis in lista_bicis['Distrito']:
-        dis_final = dis[3:]
+        dis_final = dis[4:]
         st.write(dis_final)
         
     if destino != "Eje: Gran Vía":
