@@ -118,7 +118,7 @@ with col3:
     # Mostrar los datos en la página web
     st.title("Weather")
     col4, col5, col6 = st.columns(3)
-    col4..metric(label="Temperature", value= "{}°C".format(tiempo_madrid['current']['temp_c']), delta = "{}°C".format(round(tiempo_madrid['current']['temp_c'] - tiempo_anterior['forecast']['forecastday'][0]['day']['avgtemp_c'],1)))
+    col4.metric(label="Temperature", value= "{}°C".format(tiempo_madrid['current']['temp_c']), delta = "{}°C".format(round(tiempo_madrid['current']['temp_c'] - tiempo_anterior['forecast']['forecastday'][0]['day']['avgtemp_c'],1)))
     col5.metric(label="Humidity", value= "{}°C".format(tiempo_madrid['current']['humidity']), delta = "{}°C".format(round(tiempo_madrid['current']['humidity'] - tiempo_anterior['forecast']['forecastday'][0]['day']['humidity'],1)))
 
     st.write("Conditions: {}".format(tiempo_madrid['current']['condition']['text']))
