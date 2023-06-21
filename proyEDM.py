@@ -88,7 +88,7 @@ with col2:
         if dis_final == 'CHAMARTêN':
             dis_final = 'CHAMARTÍN'
         distrito.append(dis_final)
-        st.write(dis_final)
+        
         
     if destino != "Eje: Gran Vía":
         def dirToCoord(df, calle):
@@ -141,7 +141,7 @@ with col1:
     else: pass
     st.write(lista_bicis.loc[row][9])
     st.write(lista_bicis.loc[row, 'Distrito'])
-    st.bar_chart(lista_bicis['Distrito'])
+    st.bar_chart(distrito)
     # Mostrar los datos en la página web
 
     
