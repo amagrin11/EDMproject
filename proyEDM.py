@@ -25,7 +25,7 @@ data = {'lat': [], 'lon': []}
 
 st.title("Nearest Bike Parking Finder")
 
-st.write(datatime.now())
+st.write(datetime.now())
 
 #to auto-update components
 placeholder = st.empty()
