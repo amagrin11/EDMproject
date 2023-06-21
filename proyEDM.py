@@ -75,8 +75,6 @@ with st.sidebar:
     ################################################################
 df_puntos = {'lat':[], 'lon':[]}
 lista_bicis = pd.read_csv("bicis1.csv", header = 0, sep = ';', encoding='latin-1')
-lista_coords = pd.read_csv("coords.csv", header = None)
-lista_coords = lista_coords.iloc[:,0:3]
 if destino != "Eje: Gran Vía":
     def dirToCoord(df, calle):
         minimo = 10000000
