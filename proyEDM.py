@@ -24,7 +24,7 @@ col1, col2= st.columns(2)
 with col1:
     st.title("Nearest Bike Parking Finder")
     ciudad = "Madrid"
-    destino = st.text_input("Destino", "Ejemplo: Gran Vía")
+    destino = st.text_input("Origin", "Ejemplo: Gran Vía")
 
 
 # Insertar un espacio en blanco para poner "elegir tema" abajo del todo
@@ -96,10 +96,10 @@ with col2:
     tiempo_madrid = obtener_tiempo_madrid()
     
     # Mostrar los datos en la página web
-    st.title("Tiempo actual en Madrid")
-    st.write("Temperatura: {}°C".format(tiempo_madrid['current']['temp_c']))
-    st.write("Humedad: {}%".format(tiempo_madrid['current']['humidity']))
-    st.write("Condición: {}".format(tiempo_madrid['current']['condition']['text']))
+    st.title("Weather")
+    st.write("Temperature: {}°C".format(tiempo_madrid['current']['temp_c']))
+    st.write("Humidity: {}%".format(tiempo_madrid['current']['humidity']))
+    st.write("Conditions: {}".format(tiempo_madrid['current']['condition']['text']))
     st.image(tiempo_madrid['current']['condition']['icon'], caption=tiempo_madrid['current']['condition']['text'])
 
     
