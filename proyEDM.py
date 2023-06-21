@@ -21,8 +21,6 @@ loc = Nominatim(user_agent="GetLoc")
 st.set_page_config(page_title="ParkingFinder", layout='wide', initial_sidebar_state = "auto")
 data = {'lat': [], 'lon': []}
 
-
-
 st.title("Nearest Bike Parking Finder")
 
 #to auto-update components
@@ -131,8 +129,6 @@ with col1:
     else: pass
     st.write(lista_bicis.loc[row][9])
     st.write(lista_bicis.loc[row, 'Distrito'])
-
-    
 
     # Mostrar los datos en la página web
 
