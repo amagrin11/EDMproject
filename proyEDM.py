@@ -38,33 +38,6 @@ with col1:
 
 
 # Insertar un espacio en blanco para poner "elegir tema" abajo del todo
-    st.markdown("\n")
-    st.markdown("\n")
-    st.markdown("\n")
-    st.markdown("\n")
-    st.markdown("\n")
-    st.markdown("\n")
-    st.markdown("\n")
-    st.markdown("\n")
-    st.markdown("\n")
-    st.markdown("\n")
-    st.markdown("\n")
-    st.markdown("\n")
-  
-
-    
-    if get_time_of_day() == "carto-positron": ind = 0
-    else: ind = 1
-    theme2 = st.selectbox("Elige el tema", ("Light", "Dark"), index = ind)
-    if theme2 == "Light":
-        theme = "carto-positron"
-    else:
-        theme = "carto-darkmatter"
-    
-    
-    ################################################################
-
-with col2:
     df_puntos = {'lat':[], 'lon':[]}
     lista_bicis = pd.read_csv("bicis1.csv", header = 0, sep = ';', encoding='latin-1')
     if destino != "Eje: Gran Vía":
@@ -115,3 +88,17 @@ with col2:
     
     # Mostrar el mapa interactivo en Streamlit
     st.plotly_chart(fig)
+  
+
+    
+    if get_time_of_day() == "carto-positron": ind = 0
+    else: ind = 1
+    theme2 = st.selectbox("Elige el tema", ("Light", "Dark"), index = ind)
+    if theme2 == "Light":
+        theme = "carto-positron"
+    else:
+        theme = "carto-darkmatter"
+    
+    
+    ################################################################
+
