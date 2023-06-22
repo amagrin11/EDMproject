@@ -139,7 +139,7 @@ with col1:
         st.write(loc.geocode(u))
     else: pass
     st.write(lista_bicis.loc[row][9])
-    st.write(lista_bicis.loc[row, 'Distrito'])
+    st.write(lista_bicis.loc[row, 'Distrito'][3:])
     st.write(distrito)
 
     with st.expander('Graphics'):
