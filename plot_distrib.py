@@ -1,5 +1,4 @@
 import pandas as pd
-import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -9,7 +8,6 @@ data = lista_bicis['Nmero de Plazas']
 
 def distribution_plot(data, parking_x):
   mean = np.mean(data)
-  sns.set()
   # Crear el gráfico de distribución
   plt.style.use("seaborn-dark")
   plt.figure(figsize=(5, 4))
