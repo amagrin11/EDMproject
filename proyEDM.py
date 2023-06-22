@@ -139,7 +139,6 @@ with col1:
         st.write(f'{loc.geocode(u)}')
     else: pass
     st.write(lista_bicis.loc[row, 'Distrito'][4:])
-    st.write(distrito)
 
     with st.expander('Graphics'):
         st.write("The chart above shows the distribution plot of the available slots in the bike's parkings")
