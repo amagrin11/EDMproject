@@ -13,6 +13,7 @@ from time import sleep
 import requests
 from datetime import datetime, timedelta
 from plot_distrib import *
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 loc = Nominatim(user_agent="GetLoc")
 
