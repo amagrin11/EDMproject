@@ -2,11 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-lista_bicis = pd.read_csv("bicis1.csv", header = 0, sep = ';', encoding='latin-1')
 
-data = lista_bicis['Nmero de Plazas']
-
-def distribution_plot(data, parking_x):
+def distribution_plot(parking_x):
+  lista_bicis = pd.read_csv("bicis1.csv", header = 0, sep = ';', encoding='latin-1')
+  data = lista_bicis['Nmero de Plazas']
   mean = np.mean(data)
   # Crear el gráfico de distribución
   plt.style.use("seaborn-dark")
