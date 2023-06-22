@@ -1,9 +1,6 @@
 #ric#!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 import streamlit as st
 import csv
 import plotly.express as px
@@ -143,6 +140,10 @@ with col1:
     st.write(lista_bicis.loc[row][9])
     st.write(lista_bicis.loc[row, 'Distrito'])
     st.write(distrito)
+
+    with st.expander('Graphics'):
+        st.write("The chart above shows the distribution plot of the available slots in the bike's parkings")
+        
     # Mostrar los datos en la página web
 
     
