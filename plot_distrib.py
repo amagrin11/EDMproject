@@ -24,4 +24,4 @@ def distribution_plot(data, parking_x):
   plt.ylabel("Frequency")
   plt.title("Available slots distribution")
 
-  plt.show()
+  return plt.show()
