@@ -143,7 +143,7 @@ with col1:
 
     with st.expander('Graphics'):
         st.write("The chart above shows the distribution plot of the available slots in the bike's parkings")
-        st.pyplot(distribution_plot(lista_bicis.loc[row, 'Nmero de Plazas']))
+        distribution_plot(lista_bicis.loc[row, 'Nmero de Plazas'])
     # Mostrar los datos en la página web
 
     
