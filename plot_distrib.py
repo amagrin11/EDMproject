@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import streamlit as st
 
 
 def distribution_plot(parking_x):
@@ -23,4 +24,4 @@ def distribution_plot(parking_x):
   plt.ylabel("Frequency")
   plt.title("Available slots distribution")
 
-  plt.show()
+  st.pyplot(plt.show())
