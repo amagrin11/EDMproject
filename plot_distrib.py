@@ -17,7 +17,7 @@ def distribution_plot(parking_x):
   plt.axvline(x=mean, color='black', linestyle='--', label='Mean', alpha = 0.5)
   plt.axvline(x=parking_x, color='#86E0CE', linestyle='--')
   
-  plt.text(parking_x*0.9, plt.ylim()[1]*0.5, f'{parking_x}',ha='right', va='top')
+  plt.text(parking_x*0.95, plt.ylim()[1]*0.5, f'{parking_x}',ha='right', va='top')
   plt.text(plt.xlim()[1]*0.99, plt.ylim()[1]*0.8, f'Mean = {mean:.2f}',ha='right', va='top',bbox = dict(facecolor='white', alpha=0.5))
 
   # Configuraciones adicionales
