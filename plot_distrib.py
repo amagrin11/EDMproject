@@ -10,7 +10,7 @@ def distribution_plot(parking_x):
   mean = np.mean(data)
   # Crear el gráfico de distribución
   plt.style.use("seaborn-dark")
-  plt.figure(figsize=(3,2))
+  plt.figure(figsize=(5,4))
   plt.hist(data,color='#5F93BA', edgecolor='None', alpha=0.5)
 
   # Agregar una línea vertical para marcar la media
