@@ -136,9 +136,8 @@ with col2:
 
 with col1:
     if loc.geocode(u):
-        st.write(loc.geocode(u))
+        st.metric(label='Address', value = loc.geocode(u))
     else: pass
-    st.write(lista_bicis.loc[row][9])
     st.write(lista_bicis.loc[row, 'Distrito'][4:])
     st.write(distrito)
 
