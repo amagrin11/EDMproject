@@ -15,6 +15,7 @@ from geopy.geocoders import Nominatim
 from time import sleep
 import requests
 from datetime import datetime, timedelta
+import plot_distrib
 
 loc = Nominatim(user_agent="GetLoc")
 
