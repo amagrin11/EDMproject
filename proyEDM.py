@@ -133,10 +133,10 @@ with col2:                                                #Column for the map
                     fig.update_layout(mapbox_style="carto-positron", mapbox=dict(center = centered, zoom = 15))
                     fig.update_layout(height=800,width=1000) 
                
-            else:                                            #Else, we have not obtained a point representing the nearest bike parking, so the user just see the map of Madrid.
-                fig = px.scatter_mapbox(df_puntos, lat='lat', lon='lon', center = coord_geo['Madrid'], zoom = 11)
-                fig.update_layout(mapbox_style="carto-positron")
-                fig.update_layout(height=800,width=1000)
+    else:                                            #Else, we have not obtained a point representing the nearest bike parking, so the user just see the map of Madrid.
+        fig = px.scatter_mapbox(df_puntos, lat='lat', lon='lon', center = coord_geo['Madrid'], zoom = 11)
+        fig.update_layout(mapbox_style="carto-positron")
+        fig.update_layout(height=800,width=1000)
 
     #Showing the map
     st.plotly_chart(fig)
