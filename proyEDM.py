@@ -106,7 +106,6 @@ with col2:
             getLoc_calle = loc.geocode(destino)
             if getLoc_calle:
                 row = dirToCoord(lista_bicis, getLoc_calle)
-                #a = lista_coords.loc[lista_coords.loc[:,0] == dirToCoord(lista_coords, getLoc_calle)]
                 df_puntos['lon'].append(float(lista_bicis.loc[row, 'Longitud']))
                 df_puntos['lat'].append(float(lista_bicis.loc[row, 'Latitud']))
                                                                                  
@@ -121,9 +120,22 @@ with col2:
                 marker = {'size': 9, 'color':'red'},
                     ))
             centered = {'lon' : df_puntos['lon'][0],'lat' : df_puntos['lat'][0]}
+            fig.add_trace(go.Scattermapbox(
+            mode = 'markers+text',
+            name = 'DESTINO',
+                lat=getLoc_calle.latitude,
+                lon=getLoc_calle.longitude,
+                marker = {'size': 9, 'color':'black'},
+                textposition='top right',
+                textfont=dict(size=9, color='black'),
+                text = destino insertado,
+                hoverinfo='text'))
+
             fig.update_layout(mapbox_style="carto-positron", mapbox=dict(center = centered, zoom = 15))
             fig.update_layout(height=800,width=1000) 
             u = lista_bicis.loc[row, 'Calle'] +", Madrid, España"
+            st.write("The chart above shows the distribution plot of the available slots in the bike's parkings")
+            distribution_plot(lista_bicis.loc[row, 9])
             
         else: 
             fig = px.scatter_mapbox(df_puntos, lat='lat', lon='lon', center = coord_geo['Madrid'], zoom = 11)
@@ -140,9 +152,9 @@ with col1:
     else: pass
     #st.write(lista_bicis.loc[row, 'Distrito'][4:])
 
-    with st.expander('Graphics'):
-        st.write("The chart above shows the distribution plot of the available slots in the bike's parkings")
-        distribution_plot(lista_bicis.loc[row, 9])
+    #with st.expander('Graphics'):
+        #st.write("The chart above shows the distribution plot of the available slots in the bike's parkings")
+       # distribution_plot(lista_bicis.loc[row, 9])
     # Mostrar los datos en la página web
 
     
