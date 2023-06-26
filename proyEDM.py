@@ -146,7 +146,8 @@ with col2:                                                #Column for the map
 with col1:                                                #Column for the extra information
     if loc.geocode(u):
         st.write(f'{loc.geocode(u)}')
-        st.write(calcular_distancia(df_puntos['lat'][0], df_puntos['lon'][0], df_puntos['lat'][1], df_puntos['lon'][1]))
+        st.write(df_puntos)
+        #st.write(calcular_distancia(df_puntos['lat'][0], df_puntos['lon'][0], df_puntos['lat'][1], df_puntos['lon'][1]))
         if len(df_puntos['lat']) > 0:
             with st.expander('Graphics'):                 #In the expander we will plot the distribution plot of the available slots
                 st.write("The chart below shows the distribution plot of the available slots in the bike's parkings")
