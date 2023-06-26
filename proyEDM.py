@@ -145,7 +145,8 @@ with col2:                                                #Column for the map
 with col1:                                                #Column for the extra information
     if destino != "Example: Gran Vía" and loc.geocode(u):
         st.write(f'Origin: {loc.geocode(u)}')
-        st.write(f'Bike parking: {lista_bicis.loc[row, "Calle"]}, Madrid, España')
+        u2 = f'{lista_bicis.loc[row, "Calle"]}, Madrid, España')
+        st.write(f'Bike parking: {loc.geocode(u2)}')
         st.write(calcular_distancia(df_puntos['lat'][0], df_puntos['lon'][0], getLoc_calle.latitude, getLoc_calle.longitude))
         
         if len(df_puntos['lat']) > 0:
