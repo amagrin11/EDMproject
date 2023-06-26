@@ -132,7 +132,7 @@ with col2:                                                #Column for the map
         
                     fig.update_layout(mapbox_style="carto-positron", mapbox=dict(center = centered, zoom = 15))
                     fig.update_layout(height=800,width=1000) 
-                    u2 = lista_bicis.loc[row, 'Calle'] +", Madrid, España"
+                    
                
     else:                                            #Else, we have not obtained a point representing the nearest bike parking, so the user just see the map of Madrid.
         fig = px.scatter_mapbox(df_puntos, lat='lat', lon='lon', center = coord_geo['Madrid'], zoom = 11)
@@ -145,7 +145,7 @@ with col2:                                                #Column for the map
 with col1:                                                #Column for the extra information
     if destino != "Example: Gran Vía" and loc.geocode(u):
         st.write(f'Origin: {loc.geocode(u)}')
-        st.write(f'Bike parking: {u2}')
+        st.write(f'Bike parking: {row}')
         st.write(calcular_distancia(df_puntos['lat'][0], df_puntos['lon'][0], getLoc_calle.latitude, getLoc_calle.longitude))
         
         if len(df_puntos['lat']) > 0:
