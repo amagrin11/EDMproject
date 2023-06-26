@@ -47,13 +47,11 @@ def obtener_tiempo_madrid_anterior(fecha):
     return data
 
 with placeholder.container():
-    # Obtener los datos del tiempo actual de Madrid
+    
     tiempo_madrid = obtener_tiempo_madrid()
     
-    # Calcular la fecha del día anterior
     fecha_anterior = datetime.now() - timedelta(days=1)
     
-    # Obtener los datos del tiempo del día anterior en Madrid
     tiempo_anterior = obtener_tiempo_madrid_anterior(fecha_anterior)
     
     m1,m2,m3 = st.columns(3, gap = "small")
