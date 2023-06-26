@@ -123,8 +123,8 @@ with col2:
             fig.add_trace(go.Scattermapbox(
             mode = 'markers+text',
             name = 'DESTINO',
-                lat=getLoc_calle.latitude,
-                lon=getLoc_calle.longitude,
+                lat=[getLoc_calle.latitude],
+                lon=[getLoc_calle.longitude],
                 marker = {'size': 9, 'color':'black'},
                 textposition='top right',
                 textfont=dict(size=9, color='black'),
