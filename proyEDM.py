@@ -101,7 +101,7 @@ with col2:                                                #Column for the map
             return fila
         
         if "Madrid, España" not in destino:                #Adding Madrid as prederterminated location 
-            u = destino.upper() + ", Madrid, España" 
+            u = destino[0].upper()+ destino[1:] + ", Madrid, España" 
             getLoc_calle = loc.geocode(u)                  #Getting coords of the place provided by the user
             
             if getLoc_calle:                              
