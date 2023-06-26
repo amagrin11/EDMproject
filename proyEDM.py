@@ -150,6 +150,7 @@ with col1:                                                #Column for the extra 
     if destino != "Example: Gran Vía" and loc.geocode(u):
         st.write(f'**Origin:** {loc.geocode(u)}')
         u2 = lista_bicis.loc[row, "Calle"][0].upper() + lista_bicis.loc[row, "Calle"][1:] +', Madrid, España'
+        st.write(u2)
         st.write(f'**Bike parking:** {loc.geocode(u2)}')
         st.write('--------')
         st.metric(label = "Capacity", value = f'{lista_bicis.iloc[row, 9]} bikes')
