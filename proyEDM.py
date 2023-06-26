@@ -149,7 +149,7 @@ with col2:                                                #Column for the map
 with col1:                                                #Column for the extra information
     if destino != "Example: Gran Vía" and loc.geocode(u):
         st.write(f'**Origin:** {loc.geocode(u)}')
-        u2 = lista_bicis.loc[row, "Calle"][0].upper() + lista_bicis.loc[row, "Calle"][1:] +', Madrid, España'
+        u2 = lista_bicis.loc[row, "Calle"][0].upper() + lista_bicis.loc[row, "Calle"][1:].lower() +', Madrid, España'
         st.write(u2)
         st.write(f'**Bike parking:** {loc.geocode(u2)}')
         st.write('--------')
