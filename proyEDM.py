@@ -146,7 +146,29 @@ with col2:                                                #Column for the map
 with col1:                                                #Column for the extra information
     if loc.geocode(u):
         st.write(f'{loc.geocode(u)}')
-        st.write(calcular_distancia(df_puntos['lat'][0], df_puntos['lon'][0], lat, lon))
+        
+        import math
+        radio_tierra = 6371000
+
+        lat1 = df_puntos['lat'][0]
+        lon1 = df_puntos['lon'][0]
+        lat2 = lat
+        lon2 = lon
+        
+        lat1_rad = math.radians(lat1)
+        lon1_rad = math.radians(lon1)
+        lat2_rad = math.radians(lat2)
+        lon2_rad = math.radians(lon2)
+    
+        delta_lat = lat2_rad - lat1_rad
+        delta_lon = lon2_rad - lon1_rad
+    
+        a = math.sin(delta_lat/2) ** 2 + math.cos(lat1_rad) * math.cos(lat2_rad) * math.sin(delta_lon/2) ** 2
+        c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
+        distancia = radio_tierra * c
+
+        st.write(distancia)
+        
         if len(df_puntos['lat']) > 0:
             with st.expander('Graphics'):                 #In the expander we will plot the distribution plot of the available slots
                 st.write("The chart below shows the distribution plot of the available slots in the bike's parkings")
