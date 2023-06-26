@@ -152,7 +152,7 @@ with col1:                                                #Column for the extra 
         st.write(f'Origin: {loc.geocode(u)}')
         u2 = f'{lista_bicis.loc[row, "Calle"]}, Madrid, España'
         st.write(f'Bike parking: {loc.geocode(u2)}')
-        st.metric(f'{round(calcular_distancia(df_puntos['lat'][0], df_puntos['lon'][0], getLoc_calle.latitude, getLoc_calle.longitude),2)} m)
+        st.metric(f"{round(calcular_distancia(df_puntos['lat'][0], df_puntos['lon'][0], getLoc_calle.latitude, getLoc_calle.longitude),2)} m")
         
         if len(df_puntos['lat']) > 0:
             with st.expander('Graphics'):                 #In the expander we will plot the distribution plot of the available slots
