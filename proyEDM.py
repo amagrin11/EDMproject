@@ -128,7 +128,7 @@ with col2:
                 marker = {'size': 9, 'color':'black'},
                 textposition='top right',
                 textfont=dict(size=9, color='black'),
-                text = destinoInsertado,
+                text = 'destino insertado',
                 hoverinfo='text'))
 
             fig.update_layout(mapbox_style="carto-positron", mapbox=dict(center = centered, zoom = 15))
