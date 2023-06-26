@@ -134,8 +134,6 @@ with col2:
             fig.update_layout(mapbox_style="carto-positron", mapbox=dict(center = centered, zoom = 15))
             fig.update_layout(height=800,width=1000) 
             u = lista_bicis.loc[row, 'Calle'] +", Madrid, España"
-            st.write("The chart above shows the distribution plot of the available slots in the bike's parkings")
-            distribution_plot(lista_bicis.loc[row, 9])
             
         else: 
             fig = px.scatter_mapbox(df_puntos, lat='lat', lon='lon', center = coord_geo['Madrid'], zoom = 11)
@@ -152,9 +150,10 @@ with col1:
     else: pass
     #st.write(lista_bicis.loc[row, 'Distrito'][4:])
 
-    #with st.expander('Graphics'):
-        #st.write("The chart above shows the distribution plot of the available slots in the bike's parkings")
-       # distribution_plot(lista_bicis.loc[row, 9])
+    if len(df_puntos['lat']) > 0:
+        with st.expander('Graphics'):
+            st.write("The chart above shows the distribution plot of the available slots in the bike's parkings")
+            distribution_plot(lista_bicis.loc[row, 9])
     # Mostrar los datos en la página web
 
     
