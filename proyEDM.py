@@ -120,13 +120,13 @@ with col2:                                                #Column for the map
                     centered = {'lon' : df_puntos['lon'][0],'lat' : df_puntos['lat'][0]}
                     fig.add_trace(go.Scattermapbox(
                         mode = 'markers+text',
-                        name = 'DESTINO',
+                        name = 'ORIGIN',
                             lat=[getLoc_calle.latitude],
                             lon=[getLoc_calle.longitude],
                             marker = {'size': 9, 'color':'black'},
                             textposition='top right',
                             textfont=dict(size=9, color='black'),
-                            text = 'destino insertado',
+                            text = 'ORIGIN',
                             hoverinfo='text'))
         
                     fig.update_layout(mapbox_style="carto-positron", mapbox=dict(center = centered, zoom = 15))
