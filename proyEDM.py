@@ -138,8 +138,8 @@ with col2:                                                #Column for the map
                 fig.update_layout(mapbox_style="carto-positron")
                 fig.update_layout(height=800,width=1000)
 
-            #Showing the map
-            st.plotly_chart(fig)
+    #Showing the map
+    st.plotly_chart(fig)
 
 
         
