@@ -147,16 +147,11 @@ with col2:
 with col1:
     if loc.geocode(u):
         st.write(f'{loc.geocode(u)}')
+        if len(df_puntos['lat']) > 0:
+            with st.expander('Graphics'):
+                st.write("The chart above shows the distribution plot of the available slots in the bike's parkings")
+                distribution_plot(lista_bicis.iloc[row, 9])
     else: pass
-    #st.write(lista_bicis.loc[row, 'Distrito'][4:])
-
-    if len(df_puntos['lat']) > 0:
-        with st.expander('Graphics'):
-            st.write("The chart above shows the distribution plot of the available slots in the bike's parkings")
-            distribution_plot(lista_bicis.iloc[row, 9])
-    # Mostrar los datos en la página web
-
-    
-    
-    ################################################################
+        
+################################################################
 
