@@ -6,7 +6,7 @@ import streamlit as st
 
 def distribution_plot(parking_x):
   lista_bicis = pd.read_csv("bicis1.csv", header = 0, sep = ';', encoding='latin-1')
-  data = lista_bicis[10]
+  data = lista_bicis.iloc[10]
   mean = np.mean(data)
   # Crear el gráfico de distribución
   plt.style.use("seaborn-dark")
