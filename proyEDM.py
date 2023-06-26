@@ -104,44 +104,42 @@ with col2:                                                #Column for the map
         if "Madrid, España" not in destino:                #Adding Madrid as prederterminated location 
             u = destino + ", Madrid, España" 
             getLoc_calle = loc.geocode(u)                  #Getting coords of the place provided by the user
-            if getLoc_calle:
+            
+            if getLoc_calle:                              
                 row = dirToCoord(lista_bicis, getLoc_calle)
                 df_puntos['lon'].append(float(lista_bicis.loc[row, 'Longitud']))
-                df_puntos['lat'].append(float(lista_bicis.loc[row, 'Latitud']))                                                                    
-            else:
-                pass
+                df_puntos['lat'].append(float(lista_bicis.loc[row, 'Latitud']))  
                 
-        if len(df_puntos['lat']) > 0:                     #If we have obtained a point representing the nearest bike parking
-            fig = go.Figure(go.Scattermapbox(
-                mode='markers+text',
-                name = 'PARKING',
-                lat=[df_puntos['lat'][0]],
-                lon=[df_puntos['lon'][0]],
-                marker = {'size': 9, 'color':'red'},
-                    ))
-            centered = {'lon' : df_puntos['lon'][0],'lat' : df_puntos['lat'][0]}
-            fig.add_trace(go.Scattermapbox(
-            mode = 'markers+text',
-            name = 'DESTINO',
-                lat=[getLoc_calle.latitude],
-                lon=[getLoc_calle.longitude],
-                marker = {'size': 9, 'color':'black'},
-                textposition='top right',
-                textfont=dict(size=9, color='black'),
-                text = 'destino insertado',
-                hoverinfo='text'))
+                if len(df_puntos['lat']) > 0:              #If we have obtained a point representing the nearest bike parking      
+                    fig = go.Figure(go.Scattermapbox(
+                        mode='markers+text',
+                        name = 'PARKING',
+                        lat=[df_puntos['lat'][0]],
+                        lon=[df_puntos['lon'][0]],
+                        marker = {'size': 9, 'color':'red'},
+                            ))
+                    centered = {'lon' : df_puntos['lon'][0],'lat' : df_puntos['lat'][0]}
+                    fig.add_trace(go.Scattermapbox(
+                        mode = 'markers+text',
+                        name = 'DESTINO',
+                            lat=[getLoc_calle.latitude],
+                            lon=[getLoc_calle.longitude],
+                            marker = {'size': 9, 'color':'black'},
+                            textposition='top right',
+                            textfont=dict(size=9, color='black'),
+                            text = 'destino insertado',
+                            hoverinfo='text'))
+        
+                    fig.update_layout(mapbox_style="carto-positron", mapbox=dict(center = centered, zoom = 15))
+                    fig.update_layout(height=800,width=1000) 
+               
+            else:                                            #Else, we have not obtained a point representing the nearest bike parking, so the user just see the map of Madrid.
+                fig = px.scatter_mapbox(df_puntos, lat='lat', lon='lon', center = coord_geo['Madrid'], zoom = 11)
+                fig.update_layout(mapbox_style="carto-positron")
+                fig.update_layout(height=800,width=1000)
 
-            fig.update_layout(mapbox_style="carto-positron", mapbox=dict(center = centered, zoom = 15))
-            fig.update_layout(height=800,width=1000) 
-            u = lista_bicis.loc[row, 'Calle'] +", Madrid, España"
-            
-    else:                                             #Else, we have not obtained a point representing the nearest bike parking, so the user just see the map of Madrid.
-        fig = px.scatter_mapbox(df_puntos, lat='lat', lon='lon', center = coord_geo['Madrid'], zoom = 11)
-        fig.update_layout(mapbox_style="carto-positron")
-        fig.update_layout(height=800,width=1000)
-
-    #Showing the map
-    st.plotly_chart(fig)
+            #Showing the map
+            st.plotly_chart(fig)
 
 with col1:                                                #Column for the extra information
     if loc.geocode(u):
@@ -156,4 +154,3 @@ with col1:                                                #Column for the extra 
     else: pass
         
 ################################################################
-
