@@ -102,7 +102,6 @@ with col2:                                                #Column for the map
         
         if "Madrid, España" not in destino:                #Adding Madrid as prederterminated location 
             u = destino[0].upper()+ destino[1:] + ", Madrid, España" 
-            st.write(u)
             getLoc_calle = loc.geocode(u)                  #Getting coords of the place provided by the user
             
             if getLoc_calle:                              
@@ -150,7 +149,7 @@ with col2:                                                #Column for the map
 with col1:                                                #Column for the extra information
     if destino != "Example: Gran Vía" and loc.geocode(u):
         st.write(f'**Origin:** {loc.geocode(u)}')
-        u2 = f'{lista_bicis.loc[row, "Calle"]}, Madrid, España'
+        u2 = lista_bicis.loc[row, "Calle"][0].upper() + lista_bicis.loc[row, "Calle"][1:] +', Madrid, España'
         st.write(f'**Bike parking:** {loc.geocode(u2)}')
         st.write('--------')
         st.metric(label = "Capacity", value = f'{lista_bicis.iloc[row, 9]} bikes')
