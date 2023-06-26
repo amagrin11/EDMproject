@@ -103,7 +103,7 @@ with col2:
         
         if "Madrid, España" not in destino:
             u = destino + ", Madrid, España"
-            getLoc_calle = loc.geocode(destino)
+            getLoc_calle = loc.geocode(u)
             if getLoc_calle:
                 row = dirToCoord(lista_bicis, getLoc_calle)
                 df_puntos['lon'].append(float(lista_bicis.loc[row, 'Longitud']))
@@ -123,8 +123,8 @@ with col2:
             fig.add_trace(go.Scattermapbox(
             mode = 'markers+text',
             name = 'DESTINO',
-                lat=[getLoc_calle.longitude],
-                lon=[getLoc_calle.latitude],
+                lat=[getLoc_calle.latitude],
+                lon=[getLoc_calle.longitude],
                 marker = {'size': 9, 'color':'black'},
                 textposition='top right',
                 textfont=dict(size=9, color='black'),
