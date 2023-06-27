@@ -8,3 +8,5 @@ The files needed are as follow:
 - **distance_coords.py** file with the necessary code to calculate distance between two points, having the latitude and longitude as values
 - **plot_distrib.py** file to plot the distribution
 - **proyEDM.py** main file which has all the code needed in order to run the web site
+
+Authors: Aina Magraner Rincón and Alba Martínez López
