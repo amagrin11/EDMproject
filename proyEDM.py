@@ -101,7 +101,7 @@ with col2:                                                #Column for the map
             return fila
         
         if "Madrid, España" not in destino:                #Adding Madrid as prederterminated location 
-            u = destino + ", Madrid, España" 
+            u = destino[0].upper()+ destino[1:] + ", Madrid, España" 
             getLoc_calle = loc.geocode(u)                  #Getting coords of the place provided by the user
             
             if getLoc_calle:                              
@@ -149,8 +149,8 @@ with col2:                                                #Column for the map
 with col1:                                                #Column for the extra information
     if destino != "Example: Gran Vía" and loc.geocode(u):
         st.write(f'**Origin:** {loc.geocode(u)}')
-        u2 = f'{lista_bicis.loc[row, "Calle"]}, Madrid, España'
-        st.write(f'**Bike parking:** {loc.geocode(u2)}')
+        u2 = lista_bicis.loc[row, "Calle"][0].upper() + lista_bicis.loc[row, "Calle"][1:].lower() +', Madrid, España'
+        st.write(f'**Bike parking:** {u2}')
         st.write('--------')
         st.metric(label = "Capacity", value = f'{lista_bicis.iloc[row, 9]} bikes')
         st.metric(label = "Distance", value = f"{round(calcular_distancia(df_puntos['lat'][0], df_puntos['lon'][0], getLoc_calle.latitude, getLoc_calle.longitude),2)} m")
@@ -161,6 +161,10 @@ with col1:                                                #Column for the extra 
                 # Mostrar el gráfico de distribución
                 distribution_plot(lista_bicis.iloc[row, 9])
     else: pass
+
+
+        
+################################################################
 
 
         
