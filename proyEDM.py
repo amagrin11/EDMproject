@@ -8,7 +8,7 @@ from plotly import graph_objects as go
 import pandas as pd
 import datetime
 import time
-from geopy.geocoders import Nominatim
+from geopy.geocoders import MapQuest
 from time import sleep
 import requests
 from datetime import datetime, timedelta
@@ -17,7 +17,7 @@ from distance_coords import *
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-loc = Nominatim(user_agent="GetLoc")
+loc = MapQuest(api_key="yQjmoJe6Noj0gZp6BQo51CivnqdMlPPe")
 
 st.set_page_config(page_title="ParkingFinder", layout='wide', initial_sidebar_state = "auto")
 data = {'lat': [], 'lon': []}
