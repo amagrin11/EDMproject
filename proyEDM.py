@@ -17,7 +17,7 @@ from distance_coords import *
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-loc = MapQuest(api_key="yQjmoJe6Noj0gZp6BQo51CivnqdMlPPe")
+loc = MapQuest(api_key="")
 
 st.set_page_config(page_title="ParkingFinder", layout='wide', initial_sidebar_state = "auto")
 data = {'lat': [], 'lon': []}
@@ -29,7 +29,7 @@ placeholder = st.empty()
 def obtener_tiempo_madrid():
     url = "http://api.weatherapi.com/v1/current.json"
     params = {
-        "key": "ebbc696950b4436a88a155849232106",
+        "key": "",
         "q": "Madrid"
     }
     response = requests.get(url, params=params)
@@ -39,7 +39,7 @@ def obtener_tiempo_madrid():
 def obtener_tiempo_madrid_anterior(fecha):
     url = "http://api.weatherapi.com/v1/history.json"
     params = {
-        "key": "ebbc696950b4436a88a155849232106",
+        "key": "",
         "q": "Madrid",
         "dt": fecha.strftime("%Y-%m-%d"),
     }
